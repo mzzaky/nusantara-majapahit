@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dhume8pk44sxv" path="res://scripts/core/main_world.gd" id="1_mli2r"]
 [ext_resource type="PackedScene" uid="uid://ogbhevecnpfn" path="res://assets/models/blocks/block_bata_merah.glb" id="3_f8fyy"]
 [ext_resource type="Script" uid="uid://cifq8lmyi7vxt" path="res://scripts/core/day_night_cycle.gd" id="4_wbupf"]
+[ext_resource type="PackedScene" uid="uid://bp8f6deujxu1w" path="res://scenes/ui/hud.tscn" id="5_7tdlr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dygme"]
 
@@ -26,7 +27,7 @@ size = Vector3(50, 0.5, 50)
 script = ExtResource("1_mli2r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=958472079]
-transform = Transform3D(0.8660254, 0.3584553, -0.3485826, 0, 0.6971651, 0.7169106, 0.5, -0.6208628, 0.60376275, 0, 19.67952, 0)
+transform = Transform3D(0.8660254, 0.3584553, -0.34858257, 0, 0.6971651, 0.71691066, 0.5, -0.6208628, 0.6037627, 0, 9.433151, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1746261243]
@@ -52,4 +53,8 @@ sun_light = NodePath("../DirectionalLight3D")
 moon_light = NodePath("MoonLight")
 
 [node name="MoonLight" type="DirectionalLight3D" parent="DayNightCycle" unique_id=1520556455]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.57803, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.420773, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=553399340]
+
+[node name="HUD" parent="CanvasLayer" unique_id=2007299181 instance=ExtResource("5_7tdlr")]

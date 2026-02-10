@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bp8f6deujxu1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh2we"]
+bg_color = Color(1, 0, 0.11372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
+bg_color = Color(0.90859395, 0.8183594, 0.0118856, 1)
+
+[node name="HUD" type="Control" unique_id=2007299181]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=720603441]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 47.0
+pivot_offset = Vector2(5, 0)
+theme_override_styles/fill = SubResource("StyleBoxFlat_wh2we")
+
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=447610589]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 220.0
+offset_bottom = 77.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_0mwgc")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=829909384]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "12:00"
+horizontal_alignment = 1
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=649862393]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DebugInfo" type="Label" parent="." unique_id=1284807087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

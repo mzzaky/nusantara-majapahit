@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpqevam041fhl"]
+
+[ext_resource type="Script" uid="uid://c3fb4etd5l3ek" path="res://scripts/player/player_controller.gd" id="1_rp718"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wocps"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp718"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yewv4"]
+material = SubResource("StandardMaterial3D_rp718")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rp718"]
+radius = 0.1
+
+[node name="Player" type="CharacterBody3D" unique_id=910081620]
+script = ExtResource("1_rp718")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=627153854]
+shape = SubResource("CapsuleShape3D_wocps")
+
+[node name="PlayerModel" type="Node3D" parent="." unique_id=1954409437]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel" unique_id=548427559]
+mesh = SubResource("SphereMesh_yewv4")
+
+[node name="CameraArm" type="SpringArm3D" parent="." unique_id=985074859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3)
+shape = SubResource("SphereShape3D_rp718")
+spring_length = 4.0
+margin = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="CameraArm" unique_id=580532043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b0k6bbyv018pi"]
+
+[ext_resource type="PackedScene" uid="uid://cpqevam041fhl" path="res://scenes/characters/player.tscn" id="1_0wkb6"]
+[ext_resource type="Script" uid="uid://dhume8pk44sxv" path="res://scripts/core/main_world.gd" id="1_mli2r"]
+[ext_resource type="PackedScene" uid="uid://ogbhevecnpfn" path="res://assets/models/blocks/block_bata_merah.glb" id="3_f8fyy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dygme"]
+
+[sub_resource type="Sky" id="Sky_0wkb6"]
+sky_material = SubResource("ProceduralSkyMaterial_dygme")
+
+[sub_resource type="Environment" id="Environment_mli2r"]
+background_mode = 2
+sky = SubResource("Sky_0wkb6")
+ambient_light_source = 3
+tonemap_mode = 3
+
+[sub_resource type="BoxMesh" id="BoxMesh_dygme"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0wkb6"]
+size = Vector3(50, 0.5, 50)
+
+[node name="Main" type="Node3D" unique_id=1311592474]
+script = ExtResource("1_mli2r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=958472079]
+transform = Transform3D(0.8660254, 0.3584553, -0.3485826, 0, 0.6971651, 0.7169106, 0.5, -0.6208628, 0.60376275, 0, 19.67952, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1746261243]
+environment = SubResource("Environment_mli2r")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=271197347]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=464053180]
+mesh = SubResource("BoxMesh_dygme")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1100369082]
+shape = SubResource("BoxShape3D_0wkb6")
+
+[node name="Player" parent="." unique_id=910081620 instance=ExtResource("1_0wkb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2495975, 1.7755735, 2.9100728)
+
+[node name="blockbench_export" parent="." unique_id=1000808862 instance=ExtResource("3_f8fyy")]
+transform = Transform3D(1, 0, 0, 0, 1.8774209, 0, 0, 0, 1, 2.9815702, 0.32587457, 0.35650492)

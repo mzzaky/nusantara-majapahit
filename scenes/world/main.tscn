@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cpqevam041fhl" path="res://scenes/characters/player.tscn" id="1_0wkb6"]
 [ext_resource type="Script" uid="uid://dhume8pk44sxv" path="res://scripts/core/main_world.gd" id="1_mli2r"]
 [ext_resource type="PackedScene" uid="uid://ogbhevecnpfn" path="res://assets/models/blocks/block_bata_merah.glb" id="3_f8fyy"]
+[ext_resource type="Script" uid="uid://cifq8lmyi7vxt" path="res://scripts/core/day_night_cycle.gd" id="4_wbupf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dygme"]
 
@@ -44,3 +45,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2495975, 1.7755735, 2.91007
 
 [node name="blockbench_export" parent="." unique_id=1000808862 instance=ExtResource("3_f8fyy")]
 transform = Transform3D(1, 0, 0, 0, 1.8774209, 0, 0, 0, 1, 2.9815702, 0.32587457, 0.35650492)
+
+[node name="DayNightCycle" type="Node3D" parent="." unique_id=1406005250 node_paths=PackedStringArray("sun_light", "moon_light")]
+script = ExtResource("4_wbupf")
+sun_light = NodePath("../DirectionalLight3D")
+moon_light = NodePath("MoonLight")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="DayNightCycle" unique_id=1520556455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.57803, 0)
